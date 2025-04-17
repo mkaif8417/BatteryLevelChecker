@@ -32,25 +32,3 @@ navigator.getBattery().then(function (battery) {
     battery.addEventListener('levelchange', updateLevel);
     battery.addEventListener('chargingchange', updateLevel);
   });
-
-// used for testing purposes
-// This is a mockup of how you might send data to a server.
-  const outputData = "Battery level: 85%";
-fetch('https://github.com/mkaif8417/BatteryChecker.git', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ data: outputData }),
-})
-.then(response => response.json())
-.then(data => console.log('Success:', data))
-.catch(error => console.error('Error:', error));
-
-
-fetch('https://your-server-url.com/api')
-  .then(response => response.json())
-  .then(data => {
-    document.getElementById('output').innerText = data.value; // Assuming server responds with a JSON object
-  })
-  .catch(error => console.error('Error:', error));
